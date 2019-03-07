@@ -1,0 +1,54 @@
+{
+    "torneos":
+    [
+        {
+            "idTorneo": 1,
+            "nombreTorneo": "",
+            "participantesTorneo": "",
+            "localizacionTorneo": "",
+            "rondasTorneo":
+            [
+                {
+                    "nombreRonda": "",
+                    "rivalPartido": "",
+                    "fechaPartido": "",
+                    "resultado":
+                    [
+                        "", "", ""
+                    ]
+                   
+                },
+                {
+                    "nombreRonda": "",
+                    "rivalPartido": "",
+                    "fechaPartido": "",
+                    "resultado":
+                    [
+                        "", "", ""
+                    ]
+                }
+            ]
+
+        },
+        {
+            "idTorneo": 2,
+            "nombreTorneo": "",
+            "participantesTorneo": "",
+            "localizacionTorneo": "",
+            "rondasTorneo":
+            [
+                {
+                    "nombreRonda": "",
+                    "rivalPartido": "",
+                    "fechaPartido": "",
+                    "resultado":
+                    [
+                        "", "", ""
+                    ]
+                }
+            ]
+
+        }
+
+    ]
+}
