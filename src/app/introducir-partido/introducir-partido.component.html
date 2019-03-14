@@ -1,3 +1,79 @@
-<p>
-  introducir-partido works!
-</p>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    
+  </head>
+  <body>
+      <br>
+      <br>
+      <br>
+      <div class="container">
+      
+          <div class="col-md-8 order-md-1">
+      
+            <h2 class="mb-3">Introducir Nuevo Resultado</h2>
+      
+                <label for="start">Fecha:</label>
+      
+                <input type="date" id="start" name="trip-start"
+                value="2018-07-22"
+                min="2018-01-01" max="2018-12-31">
+                <br>
+                <br>
+      
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="rival">Rival</label>
+                  <input type="text" class="form-control" id="rival" placeholder="" value="" required>
+          
+                </div>
+      
+                <div class="row">
+                <div id="torneo" class="col-xs-4 mb-3">
+                  <label for="torneo">Torneo</label>
+                  <select class="custom-select d-block w-100" id="torneo" required>
+                    <option>X Torneo Ciudad de Salamanca</option>
+                  </select>
+                </div>
+      
+                </div>
+                <div class="col-md-3 mb-3">
+                  <label for="Set1">Set 1</label>
+                  <input type="text" class="form-control" id="Set1" placeholder="x-x" required>
+                </div>
+                <div class="col-md-3 mb-3">
+                      <label for="Set2">Set 2</label>
+                      <input type="text" class="form-control" id="Set2" placeholder="x-x" required>
+                  
+                  </div>
+                  <div class="col-md-3 mb-3">
+                      <label for="Set3">Set 3</label>
+                      <input type="text" class="form-control" id="Set3" placeholder="x-x">
+                  </div>
+      
+              <br>
+              <br>
+              <br>
+              
+              <div class="col-md-6 mb-3">
+                  <form action="index.html" method="GET">
+                      <button class="btn btn-primary btn-lg btn-block" type="submit">¡Guardar!</button>
+                  </form>
+              </div>
+              
+              
+          </div>
+        </div>
+      </div>
+      
+  </body>
+</html>
+
