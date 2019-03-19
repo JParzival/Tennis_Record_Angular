@@ -1,15 +1,31 @@
 import { Component, OnInit } from '@angular/core';
+import {Router , ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-introducir-torneo',
   templateUrl: './introducir-torneo.component.html',
   styleUrls: ['./introducir-torneo.component.css']
 })
-export class IntroducirTorneoComponent implements OnInit {
 
-  constructor() { }
+export class IntroducirTorneoComponent implements OnInit 
+{
 
-  ngOnInit() {
+  constructor(private router:Router) 
+  {
+  }
+
+  ngOnInit() 
+  {
+  }
+
+  avanzar_pantalla_introducir_partido()
+  {
+    this.router.navigate(['/nuevoPartido']);
+  }
+
+  volverPantallaPrincipal()
+  {
+    this.router.navigate(['/home']);
   }
 
 }

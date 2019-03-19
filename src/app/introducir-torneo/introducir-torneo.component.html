@@ -24,13 +24,16 @@
       
               <div class="row">
                 <div class="col-md-12 mb-3">
+
                   <label for="nombreTorneo">Nombre del Torneo</label>
                   <input type="text" class="form-control" id="nombreTorneo" placeholder="" value="" required>
           
                 </div>
               </div>
+
               <div class="row">
                   <div class="col-md-12 mb-3">
+
                       <label for="localizacion">Localización del Torneo</label>
                       <input type="text" class="form-control" id="localizacion" placeholder="" value="">
                       
@@ -39,6 +42,7 @@
                 
                 <div class="row">
                   <div id="participantes" class="col-md-12 mb-3">
+
                     <label for="participantes">Número de Participantes</label>
                     <select class="custom-select d-block w-100" id="participantes" required>
                       <option>8</option>
@@ -47,25 +51,20 @@
                       <option>64</option>
                       <option>128</option>
                     </select>
+
                   </div>      
-      
                 </div>
               
               <div class="col-md-12 mb-3">
-                  <form action="form_intro_resultado.html" method="GET">
-                      <button class="btn btn-primary btn-lg btn-block" type="submit">¡Guardar e Introducir Resultado!</button>
-                  </form>
+                <button (click) = "avanzar_pantalla_introducir_partido()" class="btn btn-primary btn-lg btn-block" type="submit">¡Guardar e Introducir Resultado!</button>
               </div>
               
               <br/>
       
               <div class="col-md-12 mb-3">
-                  <form action="index.html" method="GET">
-                      <button class="btn btn-primary btn-lg btn-block" type="submit">¡Guardar!</button>
-                  </form>
+                <button (click) = "volverPantallaPrincipal()" class="btn btn-primary btn-lg btn-block" type="submit">¡Guardar!</button>
               </div>
               
-            
           </div>
         </div>
       

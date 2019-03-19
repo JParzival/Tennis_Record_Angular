@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './table-all-matches.component.html',
   styleUrls: ['./table-all-matches.component.css']
 })
+
 export class TableAllMatchesComponent implements OnInit {
 
   constructor() { }
