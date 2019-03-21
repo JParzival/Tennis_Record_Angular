@@ -9,7 +9,7 @@ import { PartidosService } from '../servicios/partidos.service';
 
 export class TableAllMatchesComponent implements OnInit
 {
-  partidos = [];
+  torneos = [];
 
   ngOnInit()
   {
@@ -23,11 +23,11 @@ export class TableAllMatchesComponent implements OnInit
                                                           (data: any) =>
                                                           {
                                                             console.log(data);
-                                                            this.partidos = data;
+                                                            this.torneos = data;
                                                           }
       );
 
-      console.log(this.partidos);
+      console.log(this.torneos);
   }
 
 }

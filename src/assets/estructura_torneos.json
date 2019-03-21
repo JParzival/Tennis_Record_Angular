@@ -9,6 +9,7 @@
             "rondasTorneo":
             [
                 {
+                    "numero": "1",
                     "nombreRonda": "Cuartos",
                     "rivalPartido": "Lorep Ipsum",
                     "fechaPartido": "14/03/2019",
@@ -19,6 +20,7 @@
                    
                 },
                 {
+                    "numero": "2",
                     "nombreRonda": "Semifinal",
                     "rivalPartido": "John Doe",
                     "fechaPartido": "21/03/2019",
@@ -38,6 +40,7 @@
             "rondasTorneo":
             [
                 {
+                    "numero": "3",
                     "nombreRonda": "Octavos",
                     "rivalPartido": "AAA BBB",
                     "fechaPartido": "23/03/2019",
