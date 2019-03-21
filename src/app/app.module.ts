@@ -8,6 +8,7 @@ import { TableAllMatchesComponent } from './table-all-matches/table-all-matches.
 import { IntroducirTorneoComponent } from './introducir-torneo/introducir-torneo.component';
 import { IntroducirPartidoComponent } from './introducir-partido/introducir-partido.component';
 import { EstadisticasComponent } from './estadisticas/estadisticas.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,11 +17,14 @@ import { EstadisticasComponent } from './estadisticas/estadisticas.component';
     TableAllMatchesComponent,
     IntroducirTorneoComponent,
     IntroducirPartidoComponent,
-    EstadisticasComponent
+    EstadisticasComponent,
+    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

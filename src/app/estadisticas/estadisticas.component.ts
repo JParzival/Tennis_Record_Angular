@@ -6,11 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./estadisticas.component.css']
 })
 
-export class EstadisticasComponent implements OnInit {
+export class EstadisticasComponent implements OnInit
+{
 
-  constructor() { }
+  constructor()
+  {
+  }
 
-  ngOnInit() {
+  ngOnInit() 
+  {
   }
 
 }

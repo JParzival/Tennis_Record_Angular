@@ -25,6 +25,7 @@
     
           <h2>Mis Últimos Partidos</h2>
           <div class="table-responsive">
+            
             <table class="table table-striped table-sm">
               <thead>
                 <tr>
@@ -40,7 +41,18 @@
               </thead>
               <br>
               <tbody>
-                <tr>
+                <tr *ngFor='let partido of partidos'>
+                  <td>1</td>
+                  <td>{{partido.rondasTorneo.fechaPartido}}</td>
+                  <td>{{partido.nombreTorneo}}</td>
+                  <td>{{partido.localizacionTorneo}}</td>
+                  <td>{{partido.participantesTorneo}}</td>
+                  <td>{{partido.rondasTorneo.nombreRonda}}</td>
+                  <td>{{partido.rondasTorneo.rivalPartido}}</td>
+                  <td>{{partido.rondasTorneo.resultado}}</td>
+                </tr>
+
+                <!--<tr>
                   <td>50</td>
                   <td>17/11/2018</td>
                   <td>X Torneo Ciudad de Salamanca</td>
@@ -69,7 +81,7 @@
                   <td>Cuartos</td>
                   <td>Lorem Ipsum</td>
                   <td>6/1 - 6/0</td>
-                </tr>
+                </tr>-->
               </tbody>
             </table>
           </div>
