@@ -13,21 +13,30 @@ export class TableAllMatchesComponent implements OnInit
 
   ngOnInit()
   {
-    
   }
 
   
   constructor(private partidosService: PartidosService)
   {
+    if(partidosService.allData.length == 0)
+    {
       partidosService.obtenerPartidosPorHttp().subscribe( 
-                                                          (data: any) =>
-                                                          {
-                                                            console.log(data);
-                                                            this.torneos = data;
-                                                          }
-      );
+        (data: any) =>
+        {
+          this.torneos = data;
 
-      console.log(this.torneos);
+          partidosService.allData = this.torneos;
+          console.log(partidosService.allData);
+        }
+      );
+    }
+    else
+    {
+      this.torneos = partidosService.allData;
+      console.log(partidosService.allData);
+    }
+      
+
   }
 
 }

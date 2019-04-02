@@ -9,18 +9,26 @@ import { map } from 'rxjs/operators';
 export class PartidosService 
 {
 
+    allData = [];
+
   constructor( private http: HttpClient ) 
   {
   }
 
   obtenerPartidosPorHttp()
   {
-    const direccion = '/assets/estructura_torneos.json';
-    return this.http.get(direccion).pipe(
-                                          map ( 
-                                                (response: any) => response.torneos
-                                              )
-                                        );
+        const direccion = '/assets/estructura_torneos.json';
+
+        return this.http.get(direccion).pipe(
+                                                map ( 
+                                                        (response: any) => response.torneos
+                                                    )
+                                            ); 
+  }
+
+  obtenerAllData()
+  {
+      return this.allData;
   }
   
   obtenerPartidos()

@@ -9,6 +9,7 @@ import { IntroducirTorneoComponent } from './introducir-torneo/introducir-torneo
 import { IntroducirPartidoComponent } from './introducir-partido/introducir-partido.component';
 import { EstadisticasComponent } from './estadisticas/estadisticas.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { FormsModule }  from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
     
   ],
   providers: [],

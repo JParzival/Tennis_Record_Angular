@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 
+import { PartidosService } from '../servicios/partidos.service';
+
+import { Torneo } from '../modelos/torneo';
+
 @Component({
   selector: 'app-introducir-torneo',
   templateUrl: './introducir-torneo.component.html',
@@ -10,8 +14,31 @@ import {Router} from '@angular/router';
 export class IntroducirTorneoComponent implements OnInit 
 {
 
-  constructor(private router:Router) 
+  localizacionTorneo: String  = "";
+  participantesTorneo: String = "";
+  nombreTorneo: String = "";
+
+  listaTorneos = [];
+
+  constructor(private router:Router,
+              private partidosService: PartidosService) 
   {
+    if(partidosService.allData.length == 0)
+    {
+      partidosService.obtenerPartidosPorHttp().subscribe( 
+        (data: any) =>
+        {
+          console.log(data);
+          this.listaTorneos = data;
+        }
+      );
+    }
+    else
+    {
+
+      this.listaTorneos = partidosService.allData;
+    }
+    
   }
 
   ngOnInit() 
@@ -26,6 +53,19 @@ export class IntroducirTorneoComponent implements OnInit
   volverPantallaPrincipal()
   {
     this.router.navigate(['/home']);
+  }
+
+  anadirTorneo(nombreTorneo, participantesTorneo, localizacionTorneo) 
+  {
+    let allData = [];
+    
+    allData = this.partidosService.obtenerAllData();
+
+    const nuevoId = allData[this.partidosService.allData.length - 1].idTorneo + 1;
+    const nuevoTorneo = new Torneo(nuevoId, nombreTorneo, participantesTorneo, localizacionTorneo);
+    this.partidosService.allData.push(nuevoTorneo);
+    console.log(this.partidosService.allData);
+
   }
 
 }
