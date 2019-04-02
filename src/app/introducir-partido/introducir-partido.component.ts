@@ -13,6 +13,11 @@ import { PartidosService } from '../servicios/partidos.service';
 export class IntroducirPartidoComponent implements OnInit 
 {
 
+  nombreRonda: String  = "";
+  rivalPartido: String  = "";
+  fechaPartido: String  = "";
+  resultado: String  = "";
+
   constructor(private router: Router,
               private partidosService: PartidosService)
   {
@@ -28,16 +33,16 @@ export class IntroducirPartidoComponent implements OnInit
     this.router.navigate(['/home']);
   }
 
-  anadirPartido(nombreRonda, rivalPartido, fechaPartido, resultado) 
+  anadirPartido() 
   {
     let allData = [];
     allData =  this.partidosService.obtenerAllData();
 
     const nuevoId = allData[this.partidosService.allData.length - 1].idTorneo + 1;
-    const nuevoPartido = new Partido(1, nombreRonda, rivalPartido, fechaPartido, resultado);
+    const nuevoPartido = new Partido(nuevoId, this.nombreRonda, this.rivalPartido, this.fechaPartido, this.resultado);
 
     this.partidosService.allData.push(nuevoPartido);
-    
+
     console.log(this.partidosService.allData);
   }
 

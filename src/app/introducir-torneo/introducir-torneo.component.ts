@@ -55,14 +55,14 @@ export class IntroducirTorneoComponent implements OnInit
     this.router.navigate(['/home']);
   }
 
-  anadirTorneo(nombreTorneo, participantesTorneo, localizacionTorneo) 
+  anadirTorneo() 
   {
     let allData = [];
     
     allData = this.partidosService.obtenerAllData();
 
     const nuevoId = allData[this.partidosService.allData.length - 1].idTorneo + 1;
-    const nuevoTorneo = new Torneo(nuevoId, nombreTorneo, participantesTorneo, localizacionTorneo);
+    const nuevoTorneo = new Torneo(nuevoId, this.nombreTorneo, this.participantesTorneo, this.localizacionTorneo);
     this.partidosService.allData.push(nuevoTorneo);
     console.log(this.partidosService.allData);
 
