@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import { PartidosService } from '../servicios/partidos.service';
 
 import { Torneo } from '../modelos/torneo';
+import { Partido } from '../modelos/partido';
 
 @Component({
   selector: 'app-introducir-torneo',
@@ -14,9 +15,9 @@ import { Torneo } from '../modelos/torneo';
 export class IntroducirTorneoComponent implements OnInit 
 {
 
-  localizacionTorneo: String  = "";
-  participantesTorneo: String = "";
-  nombreTorneo: String = "";
+  localizacionTorneo: string  = "";
+  participantesTorneo: string = "";
+  nombreTorneo: string = "";
 
   listaTorneos = [];
 
@@ -63,8 +64,11 @@ export class IntroducirTorneoComponent implements OnInit
 
     const nuevoId = allData[this.partidosService.allData.length - 1].idTorneo + 1;
     const nuevoTorneo = new Torneo(nuevoId, this.nombreTorneo, this.participantesTorneo, this.localizacionTorneo);
-    this.partidosService.allData.push(nuevoTorneo);
-    console.log(this.partidosService.allData);
+
+    this.partidosService.dataAMedias = nuevoTorneo;
+
+    console.log(this.partidosService.obtenerAllData());
+    console.log(this.partidosService.obtenerDataAMedias());
 
   }
 

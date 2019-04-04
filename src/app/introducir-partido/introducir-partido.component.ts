@@ -3,6 +3,8 @@ import {Router} from '@angular/router';
 
 import { Partido } from '../modelos/partido';
 import { PartidosService } from '../servicios/partidos.service';
+import { Torneo } from '../modelos/torneo';
+import { R3BoundTarget } from '@angular/compiler';
 
 @Component({
   selector: 'app-introducir-partido',
@@ -16,12 +18,17 @@ export class IntroducirPartidoComponent implements OnInit
   nombreRonda: String  = "";
   rivalPartido: String  = "";
   fechaPartido: String  = "";
-  resultado: String  = "";
+  r1: String  = "";
+  r2: String  = "";
+  r3: String  = "";
+  nombreTorneo: String = "";
+
+  dataAMedias = Torneo;
 
   constructor(private router: Router,
               private partidosService: PartidosService)
   {
-    console.log(this.partidosService.allData)
+    partidosService.obtenerDataAMedias();
   }
 
   ngOnInit() 
@@ -35,15 +42,48 @@ export class IntroducirPartidoComponent implements OnInit
 
   anadirPartido() 
   {
+    let resultado = "";
+
+    if(this.r3.length != 0)
+    {
+      resultado = this.r1 + "," + this.r2 + "," + this.r3;
+    }
+    else
+    {
+      resultado = this.r1 + "," + this.r2;
+    }
+
+    
+
     let allData = [];
     allData =  this.partidosService.obtenerAllData();
 
-    const nuevoId = allData[this.partidosService.allData.length - 1].idTorneo + 1;
-    const nuevoPartido = new Partido(nuevoId, this.nombreRonda, this.rivalPartido, this.fechaPartido, this.resultado);
+    let torneo: Torneo = this.partidosService.obtenerDataAMedias();
+    torneo.rondasTorneo = [];
 
-    this.partidosService.allData.push(nuevoPartido);
+    switch(torneo.participantesTorneo)
+    {
+      case "8": this.nombreRonda = "Cuartos";
+              break;
+      
+      case "16": this.nombreRonda = "Octavos";
+              break;
+      
+      case "32": this.nombreRonda = "Dieciseisavos";
+              break;
 
-    console.log(this.partidosService.allData);
+      case "64": this.nombreRonda = "Primera Ronda";
+              break;
+        
+      case "128": this.nombreRonda = "Primera Ronda";
+               break;
+    }
+
+    const nuevoPartido = new Partido(1, this.nombreRonda, this.rivalPartido, this.fechaPartido, resultado);
+
+    torneo.rondasTorneo.push(nuevoPartido);
+
+    this.partidosService.allData.push(torneo);
   }
 
 }

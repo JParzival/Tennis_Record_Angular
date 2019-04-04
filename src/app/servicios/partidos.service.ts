@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { Partido } from '../modelos/partido';
+import { Torneo } from '../modelos/torneo';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +12,8 @@ export class PartidosService
 {
 
     allData = [];
+
+    dataAMedias: Torneo;
 
   constructor( private http: HttpClient ) 
   {
@@ -29,6 +33,11 @@ export class PartidosService
   obtenerAllData()
   {
       return this.allData;
+  }
+
+  obtenerDataAMedias()
+  {
+      return this.dataAMedias;
   }
   
   obtenerPartidos()

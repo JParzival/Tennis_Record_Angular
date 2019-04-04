@@ -6,7 +6,7 @@ export class Torneo
     nombreTorneo: string;
     participantesTorneo: string;
     localizacionTorneo: string;
-    partidos: Partido[];
+    rondasTorneo: Partido[];
     
   
     constructor(idTorneo, nombreTorneo, participantesTorneo, localizacionTorneo)
@@ -15,7 +15,7 @@ export class Torneo
       this.nombreTorneo = nombreTorneo;
       this.participantesTorneo = participantesTorneo;
       this.localizacionTorneo = localizacionTorneo;
-      this.partidos = null;
+      this.rondasTorneo = null;
     }
   }
   
