@@ -15,6 +15,7 @@ export class EstadisticasComponent implements OnInit
 
   ngOnInit() 
   {
+    console.log("Paso por el Init");
   }
 
 }

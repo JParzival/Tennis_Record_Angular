@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
         <title>Estadísticas</title>
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -11,11 +12,12 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
         <script src="https://code.highcharts.com/highcharts.js"></script>
         <script src="https://code.highcharts.com/modules/data.js"></script>
         <script src="https://code.highcharts.com/modules/drilldown.js"></script>
         <script src="https://code.highcharts.com/js/modules/exporting.js"></script>
-
+        <script src="https://code.highcharts.com/modules/export-data.js"></script>
 
     </head>
 
@@ -27,14 +29,111 @@
             <h1 id="id"> Estadísticas en los últimos 3 meses </h1>
 
             <br>
-            <div id="container" style="min-width: 350px; height: 400px; width: 500px; margin: 0 auto"></div>
-            <div id="containerCircle"></div>
 
-            <script src="js/barchart.js"></script>
-            <script src="js/circlechart.js"></script>
+            <div id="container" style="min-width: 350px; height: 400px; width: 500px; margin: 0 auto"></div>
+            <br>
+            <div id="containerCircle"></div>
+            
+
+            <!-- SCRIPTS-->
+
+            <!--
+                <script type="text/javascript">
+                console.log("He pasado el body y llegado a los scripts");
+            </script>
+        
+            <script type="text/javascript">
+        
+                Highcharts.chart('container', 
+                {
+                    chart: {
+                        type: 'column'
+                    },
+                    title: {
+                        text: 'Partidos Ganados Vs Perdidos'
+                    },
+                    subtitle: {
+                        text: ''
+                    },
+                    xAxis: {
+                        type: 'category'
+                    },
+                    yAxis: {
+                        title: {
+                        text: 'Porcentaje'
+                        }
+        
+                    },
+                    legend: {
+                        enabled: false
+                    },
+                    plotOptions: {
+                        series: {
+                        borderWidth: 0,
+                        dataLabels: {
+                            enabled: true,
+                            format: '{point.y:.1f}%'
+                        }
+                        }
+                    },
+                    tooltip: {
+                        headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+                        pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> de partidos<br/>'
+                    },
+                    "series": 
+                    [
+                        {
+                        "name": "Datos",
+                        "colorByPoint": true,
+                        "data": [
+                            {
+                            "name": "Partidos Ganados",
+                            "y": 62.74,
+                            
+                            },
+                            {
+                            "name": "Partidos Perdidos",
+                            "y": 37.26,
+                            
+                            }
+                        ]
+                        }
+                    ]
+                });        
+        
+            </script>
+        
+            <script type="text/javascript">
+        
+                Highcharts.chart('containerCircle', 
+                {
+                    title: {
+                    text: 'Juegos Ganados y Perdidos'
+                    },
+        
+                    xAxis: {
+                    categories: []
+                    },
+        
+                    series: [
+                    {
+                        type: 'pie',
+                        allowPointSelect: true,
+                        keys: ['name', 'y', 'selected', 'sliced'],
+                        data: 
+                        [
+                            ['Juegos Ganados', 87, false],
+                            ['Juegos Perdidos', 51, false],
+                        ],
+                        showInLegend: true
+                    }]
+                });
+        
+        
+            </script>
+
+            -->
 
     </body>
-
-    
       
 </html>

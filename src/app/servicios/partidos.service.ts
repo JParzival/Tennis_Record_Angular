@@ -56,7 +56,7 @@ export class PartidosService
                           {
                               "nombreRonda": "Cuartos",
                               "rivalPartido": "Lorep Ipsum",
-                              "fechaPartido": "14/03/2019",
+                              "fechaPartido": "14-03-2019",
                               "resultado":
                               [
                                   "6-1", "6-0"
@@ -66,7 +66,7 @@ export class PartidosService
                           {
                               "nombreRonda": "Semifinal",
                               "rivalPartido": "John Doe",
-                              "fechaPartido": "21/03/2019",
+                              "fechaPartido": "21-03-2019",
                               "resultado":
                               [
                                   "6-4", "6-3"
@@ -85,7 +85,7 @@ export class PartidosService
                           {
                               "nombreRonda": "Octavos",
                               "rivalPartido": "AAA BBB",
-                              "fechaPartido": "23/03/2019",
+                              "fechaPartido": "23-03-2019",
                               "resultado":
                               [
                                   "1-6", "6-7"

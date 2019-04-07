@@ -4,7 +4,7 @@ import {Router} from '@angular/router';
 import { Partido } from '../modelos/partido';
 import { PartidosService } from '../servicios/partidos.service';
 import { Torneo } from '../modelos/torneo';
-import { R3BoundTarget } from '@angular/compiler';
+import { R3BoundTarget, ConstantPool } from '@angular/compiler';
 
 @Component({
   selector: 'app-introducir-partido',
@@ -84,6 +84,67 @@ export class IntroducirPartidoComponent implements OnInit
     if (!torneo)
     {
       console.log("No hay torneo a medias, has entrado directamente a introducir resultado");
+
+      //Buscar torneo metido en el campo select, recoger los partidos ya existentes, meter uno nuevo e introducirlo a allData
+
+      for (let tournament of allData)
+      {
+
+        //console.log(tournament);
+        if(tournament.nombreTorneo == this.nombreTorneo)
+        {
+
+         // saber en qué ronda estás
+
+          let rondas = tournament.rondasTorneo.length;
+          let participantesTorneo = tournament.participantesTorneo;
+
+          let diferencia = Math.log2(participantesTorneo) - rondas;
+
+          switch(diferencia)
+          {
+            case 0: console.log("no queda torneo");
+                    return;
+
+            case 1: this.nombreRonda = "Final";
+                    break;
+
+            case 2: this.nombreRonda = "Semifinal";
+                    break;
+
+            case 3: this.nombreRonda = "Cuartos";
+                    break;
+
+            case 4: this.nombreRonda = "Octavos";
+                    break;
+
+            case 5: this.nombreRonda = "Dieciseisavos";
+                    break;
+
+            case 6: this.nombreRonda = "Te queda un mundo colega";
+                    break;
+          }
+
+          const nuevoPartido = new Partido(1, this.nombreRonda, this.rivalPartido, this.fechaPartido, resultado);
+          console.log(nuevoPartido);
+  
+          tournament.rondasTorneo.push(nuevoPartido);
+
+          console.log(tournament);
+
+          //borro el torneo anterior para que no se duplique...
+
+          this.partidosService.allData = this.partidosService.allData.filter(item => item.nombreTorneo !== this.nombreTorneo);
+
+          //introduzco el nuevo
+
+          this.partidosService.allData.push(tournament);
+
+          break;
+        }
+
+      }
+
     }
     else
     {
@@ -113,7 +174,7 @@ export class IntroducirPartidoComponent implements OnInit
   
       this.partidosService.allData.push(torneo);
     }
-    }
+  }
 
     
 
