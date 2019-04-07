@@ -25,7 +25,7 @@
       
                 <input [(ngModel)]="fechaPartido" type="date" id="start" name="trip-start"
                 value="2018-07-22"
-                min="2018-01-01" max="2018-12-31">
+                min="2018-01-01" max="2020-12-31">
                 <br>
                 <br>
       
@@ -37,24 +37,25 @@
                 </div>
       
                 <div class="row">
-                <div id="torneo" class="col-xs-4 mb-3">
-                  <label for="torneo">Torneo</label>
-                  <select [(ngModel)]="nombreTorneo" class="custom-select d-block w-100" id="torneo" required>
-                    <option>X Torneo Ciudad de Salamanca</option>
-                  </select>
+                  <div id="torneo" class="col-xs-6 mb-6">
+                    <label for="torneo">Torneo</label>
+                    <select [(ngModel)]="nombreTorneo" class="custom-select d-block w-100" id="torneo" required>
+                      <option>X Torneo Ciudad de Salamanca</option>
+                      <option>III Torneo de Ciudad Rodrigo</option>
+                    </select>
+                  </div>
                 </div>
-      
-                </div>
-                <div class="col-md-3 mb-3">
+                <br>
+                <div class="col-md-4 mb-4">
                   <label for="Set1">Set 1</label>
                   <input [(ngModel)]="r1" type="text" class="form-control" id="Set1" placeholder="x-x" required>
                 </div>
-                <div class="col-md-3 mb-3">
+                <div class="col-md-4 mb-4">
                     <label for="Set2">Set 2</label>
                     <input [(ngModel)]="r2" type="text" class="form-control" id="Set2" placeholder="x-x" required>
                   
                   </div>
-                  <div class="col-md-3 mb-3">
+                  <div class="col-md-4 mb-4">
                     <label for="Set3">Set 3</label>
                     <input [(ngModel)]="r3" type="text" class="form-control" id="Set3" placeholder="x-x">
                   </div>
