@@ -40,8 +40,7 @@
                   <div id="torneo" class="col-xs-6 mb-6">
                     <label for="torneo">Torneo</label>
                     <select [(ngModel)]="nombreTorneo" class="custom-select d-block w-100" id="torneo" required>
-                      <option>X Torneo Ciudad de Salamanca</option>
-                      <option>III Torneo de Ciudad Rodrigo</option>
+                      <option *ngFor='let torneo of torneos' selected>{{torneo.nombreTorneo}}</option>
                     </select>
                   </div>
                 </div>

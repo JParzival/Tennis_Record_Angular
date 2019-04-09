@@ -47,8 +47,14 @@ export class IntroducirPartidoComponent implements OnInit
     else
     {
       this.torneos = partidosService.allData;
-      console.log(partidosService.allData);
     }
+
+    if(partidosService.dataAMedias)
+    {
+      this.torneos.push(partidosService.dataAMedias);
+    }
+
+    console.log(partidosService.allData);
       
   }
 
@@ -74,7 +80,6 @@ export class IntroducirPartidoComponent implements OnInit
       resultado = this.r1 + "," + this.r2;
     }
 
-    
 
     let allData = [];
     allData =  this.partidosService.obtenerAllData();
@@ -177,5 +182,4 @@ export class IntroducirPartidoComponent implements OnInit
   }
 
     
-
 }

@@ -36,7 +36,6 @@ export class IntroducirTorneoComponent implements OnInit
     }
     else
     {
-
       this.listaTorneos = partidosService.allData;
     }
     
