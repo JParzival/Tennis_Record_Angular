@@ -21,11 +21,12 @@ export class PartidosService
 
   obtenerPartidosPorHttp()
   {
-        const direccion = '/assets/estructura_torneos.json';
+        //const direccion = '/assets/estructura_torneos.json';
+        const direccion = 'http://localhost:9797/api/torneos';
 
         return this.http.get(direccion).pipe(
                                                 map ( 
-                                                        (response: any) => response.torneos
+                                                        (response: any) => response.listadoTorneos
                                                     )
                                             ); 
   }

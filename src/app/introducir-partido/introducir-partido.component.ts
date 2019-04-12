@@ -5,6 +5,11 @@ import { Partido } from '../modelos/partido';
 import { PartidosService } from '../servicios/partidos.service';
 import { Torneo } from '../modelos/torneo';
 import { R3BoundTarget, ConstantPool } from '@angular/compiler';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 @Component({
   selector: 'app-introducir-partido',
@@ -12,9 +17,11 @@ import { R3BoundTarget, ConstantPool } from '@angular/compiler';
   styleUrls: ['./introducir-partido.component.css']
 })
 
+
 export class IntroducirPartidoComponent implements OnInit 
 {
 
+  
   nombreRonda: String  = "";
   rivalPartido: String  = "";
   fechaPartido: String  = "";
@@ -28,7 +35,8 @@ export class IntroducirPartidoComponent implements OnInit
   torneos = [];
 
   constructor(private router: Router,
-              private partidosService: PartidosService)
+              private partidosService: PartidosService,
+              private http: HttpClient )
   {
     partidosService.obtenerDataAMedias();
 
@@ -145,6 +153,8 @@ export class IntroducirPartidoComponent implements OnInit
 
           this.partidosService.allData.push(tournament);
 
+          this.http.post('http://localhost:9797/api/torneo', JSON.stringify(tournament), httpOptions);
+
           break;
         }
 
@@ -178,6 +188,8 @@ export class IntroducirPartidoComponent implements OnInit
       torneo.rondasTorneo.push(nuevoPartido);
   
       this.partidosService.allData.push(torneo);
+
+      this.http.post('http://localhost:9797/api/torneo', JSON.stringify(torneo), httpOptions);
     }
   }
 

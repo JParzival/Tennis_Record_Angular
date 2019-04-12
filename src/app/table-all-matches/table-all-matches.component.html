@@ -68,7 +68,9 @@
       
                     <td>{{ronda.rivalPartido}}</td>
                       
-                    <td>{{ronda.resultado}}</td>
+                    <td *ngFor='let resultado of ronda.resultado'>
+                      {{resultado[0]}} {{resultado[1]}} {{resultado[2]}}
+                    </td>
                       
                   </tr>
 

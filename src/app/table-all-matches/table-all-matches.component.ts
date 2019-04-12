@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PartidosService } from '../servicios/partidos.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-table-all-matches',
@@ -16,10 +17,9 @@ export class TableAllMatchesComponent implements OnInit
   }
 
   
-  constructor(private partidosService: PartidosService)
+  constructor(private partidosService: PartidosService,
+              private http: HttpClient)
   {
-    if(partidosService.allData.length == 0)
-    {
       partidosService.obtenerPartidosPorHttp().subscribe( 
         (data: any) =>
         {
@@ -29,13 +29,6 @@ export class TableAllMatchesComponent implements OnInit
           console.log(partidosService.allData);
         }
       );
-    }
-    else
-    {
-      this.torneos = partidosService.allData;
-      console.log(partidosService.allData);
-    }
-      
 
   }
 
