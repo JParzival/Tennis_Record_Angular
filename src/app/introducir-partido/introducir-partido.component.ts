@@ -103,7 +103,6 @@ export class IntroducirPartidoComponent implements OnInit
       for (let tournament of allData)
       {
 
-        //console.log(tournament);
         if(tournament.nombreTorneo == this.nombreTorneo)
         {
 
