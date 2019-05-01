@@ -1,12 +1,17 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import { Partido } from '../modelos/partido';
 import { Torneo } from '../modelos/torneo';
+
+const httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 @Injectable({
   providedIn: 'root'
 })
+
+
 
 export class PartidosService 
 {
@@ -22,13 +27,19 @@ export class PartidosService
   obtenerPartidosPorHttp()
   {
         //const direccion = '/assets/estructura_torneos.json';
-        const direccion = 'http://localhost:9797/api/torneos';
+        const direccion = '/api/torneos';
 
         return this.http.get(direccion).pipe(
                                                 map ( 
                                                         (response: any) => response.listadoTorneos
                                                     )
                                             ); 
+  }
+
+  postear(tournament)
+  {
+    console.log("Posteamos! : " + tournament);
+    return this.http.post('/api/torneo', tournament, httpOptions);
   }
 
   obtenerAllData()
