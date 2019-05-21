@@ -39,7 +39,9 @@ export class PartidosService
   postear(tournament)
   {
     console.log("Posteamos! : " + tournament);
+
     return this.http.post('/api/torneo', tournament, httpOptions);
+
   }
 
   obtenerAllData()
